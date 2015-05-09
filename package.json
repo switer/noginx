@@ -1,0 +1,24 @@
+{
+  "name": "noginx",
+  "version": "1.0.0",
+  "description": " It's a cache proxy middleware like logical nginx of node.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/switer/noginx.git"
+  },
+  "keywords": [
+    "node",
+    "cache",
+    "proxy"
+  ],
+  "author": "switer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/switer/noginx/issues"
+  },
+  "homepage": "https://github.com/switer/noginx"
+}
