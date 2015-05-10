@@ -49,8 +49,11 @@ module.exports = function (assert, noginx) {
                             t == c && done()
                         }, function (tpl, data, fn) {
                             // render
-                            if (fn) return fn(null, tpls[tpl])
-                            this.send(tpls[tpl])
+                            setTimeout( function() {
+                                if (fn) return fn(null, tpls[tpl])
+                                this.send(tpls[tpl])
+                            });
+                                
                         })
                     requests.push({
                         req: req,
