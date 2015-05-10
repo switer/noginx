@@ -1,5 +1,5 @@
 {
-  "name": "noginx",
+  "name": "node-noginx",
   "version": "1.0.0",
   "description": " It's a cache proxy middleware like logical nginx of node.js.",
   "main": "index.js",
