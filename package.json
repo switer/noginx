@@ -4,7 +4,7 @@
   "description": " It's a cache proxy middleware like logical nginx of node.js.",
   "main": "index.js",
   "scripts": {
-    "test": "node test"
+    "test": "mocha test/index"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/switer/noginx/issues"
   },
-  "homepage": "https://github.com/switer/noginx"
+  "homepage": "https://github.com/switer/noginx",
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4"
+  }
 }
