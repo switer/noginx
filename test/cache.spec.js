@@ -43,12 +43,12 @@ module.exports = function (assert, Cache) {
 
             it('Cache with max-age', function (done) {
                 var c = new Cache()
-                c.set('index', 'index', 100)
+                c.set('index', 'index', 50)
                 assert.equal(c.get('index'), 'index')
                 setTimeout(function () {
                     assert.equal(c.get('index'), undefined)
                     done()
-                }, 150)
+                }, 200)
             })
         })
 
@@ -58,12 +58,12 @@ module.exports = function (assert, Cache) {
                     max: 6,
                     freePercent: 0.5
                 })
-                c.set('c-1', 1)
-                 .set('c-2', 2)
-                 .set('c-3', 3)
-                 .set('c-4', 4)
-                 .set('c-5', 5)
-                 .set('c-6', 6)
+                c.set('c-1', 1, 60)
+                 .set('c-2', 2, 50)
+                 .set('c-3', 3, 40)
+                 .set('c-4', 4, 30)
+                 .set('c-5', 5, 20)
+                 .set('c-6', 6, 10)
 
                 c.free()
                 assert.equal(c.get('c-3'), 3)
@@ -75,13 +75,13 @@ module.exports = function (assert, Cache) {
                     max: 6,
                     freePercent: 0.5
                 })
-                c.set('c-1', 1)
-                 .set('c-2', 2)
-                 .set('c-3', 3)
-                 .set('c-4', 4)
-                 .set('c-5', 5)
-                 .set('c-6', 6)
-                 .set('c-7', 7)
+                c.set('c-1', 1, 70)
+                 .set('c-2', 2, 60)
+                 .set('c-3', 3, 50)
+                 .set('c-4', 4, 40)
+                 .set('c-5', 5, 30)
+                 .set('c-6', 6, 20)
+                 .set('c-7', 7, 10)
 
                 assert.equal(c.get('c-3'), 3)
                 assert.equal(c.get('c-4'), undefined)
@@ -95,10 +95,10 @@ module.exports = function (assert, Cache) {
                 })
                 c.set('c-1', 1, 100)
                  .set('c-2', 2, 100)
-                 .set('c-3', 3)
-                 .set('c-4', 4)
-                 .set('c-5', 5)
-                 .set('c-6', 6)
+                 .set('c-3', 3, 600)
+                 .set('c-4', 4, 500)
+                 .set('c-5', 5, 400)
+                 .set('c-6', 6, 300)
 
                 setTimeout(function () {
                     c.set('c-7', 7)
@@ -110,7 +110,7 @@ module.exports = function (assert, Cache) {
                     assert.equal(c.get('c-6'), undefined)
                     assert.equal(c.get('c-7'), 7)
                     done()
-                }, 150)
+                }, 200)
             })
         })
     })
