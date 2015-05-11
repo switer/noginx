@@ -28,6 +28,19 @@ app.use(noginx([ < RegExp > , {
 npm test
 ```
 
+## Doc
+
+### Proxy method
+
+* **res.render**
+* **res.send**
+
+### Proxy headers
+
+* **Content-Type**
+* **Cache-Control**
+
+
 ## License
 
 MIT
