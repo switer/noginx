@@ -20,7 +20,8 @@ app.use(noginx([ < RegExp > , {
 }]), {
     maxAge: 3 * 1000, // ms, default 3000
     maxQueueSize: 5000, // max request watting queue size, default 5000, it will responce 503 when queue is full 
-    timeout: 100 // ms, default 100
+    timeout: 100, // ms, default 100
+    debug: < Boolean > // whether log debug info
 })
 ```
 
