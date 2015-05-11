@@ -1,4 +1,5 @@
 # noginx
+[![Build Status](https://travis-ci.org/switer/noginx.svg?branch=master)](https://travis-ci.org/switer/noginx)
 It's a cache proxy middleware like logical nginx of node.js.
 
 ## Install
@@ -39,7 +40,6 @@ npm test
 
 * **Content-Type**
 * **Cache-Control**
-
 
 ## License
 
