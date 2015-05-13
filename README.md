@@ -36,7 +36,18 @@ npm test
 ### Proxy method
 
 * **res.render**
+	override: 
+		- res.render(tpl, data)
+
 * **res.send**
+	override: 
+		- res.render(statusCode, body)
+		- res.render(statusCode)
+		- res.render(body)
+
+* **res.json**
+	override:
+		- res.json(obj)
 
 ### Proxy headers
 

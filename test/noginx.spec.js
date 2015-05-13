@@ -53,7 +53,7 @@ module.exports = function (assert, noginx) {
                 maxQueueSize: 10
             })
         describe('# Rule and tpl render', function (done) {
-            it('Simple RegExp rule match witch 100 concurrences', function (done) {
+            it('Simple RegExp rule match which 20 concurrences', function (done) {
                 var through
                 var requests = []
                 var c = 20
