@@ -199,18 +199,32 @@ module.exports = function (assert, noginx) {
                     assert.equal(this.statusCode, 200)
 
                     setTimeout(function () {
-                        // last cache will be expired
+                        // last cache will be hit
                         var req2 = new Request('get', '/chatting?tab=b&uc_params=xxx')   
                         var res2 = new Response(function (body) {
                             var type = this.headers['X-Noginx']
-                            assert.equal(type, 'through')
+                            assert.equal(type, 'hit')
                             assert.equal(this.statusCode, 200)
-                            done()
+
+                            setTimeout(function () {
+                                // last cache will be expired
+                                var req3 = new Request('get', '/chatting?tab=b&uc_params=xxx')   
+                                var res3 = new Response(function (body) {
+                                    var type = this.headers['X-Noginx']
+                                    assert.equal(type, 'through')
+                                    assert.equal(this.statusCode, 200)
+                                    done()
+                                }, function () {
+                                    render.apply(this, arguments)
+                                })
+                                request(req3, res3)
+                            }, 300)
                         }, function () {
                             render.apply(this, arguments)
                         })
                         request(req2, res2)
-                    }, 300)
+                    }, 50)
+
 
                 }, function () {
                     render.apply(this, arguments)

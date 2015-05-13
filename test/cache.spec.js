@@ -43,12 +43,15 @@ module.exports = function (assert, Cache) {
 
             it('Cache with max-age', function (done) {
                 var c = new Cache()
-                c.set('index', 'index', 50)
+                c.set('index', 'index', 300)
                 assert.equal(c.get('index'), 'index')
+                setTimeout(function () {
+                    assert.equal(c.get('index'), 'index')
+                }, 100)
                 setTimeout(function () {
                     assert.equal(c.get('index'), undefined)
                     done()
-                }, 200)
+                }, 400)
             })
         })
 
