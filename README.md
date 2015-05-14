@@ -51,6 +51,10 @@ npm test
 	override:
 		- res.json(obj)
 
+* **res.redirect**
+    override:
+        - res.redirect(url)
+
 ### Proxy headers
 
 * **Content-Type**
