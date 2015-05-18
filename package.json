@@ -1,6 +1,6 @@
 {
   "name": "node-noginx",
-  "version": "1.1.19",
+  "version": "1.2.0",
   "description": " It's a cache proxy middleware like logical nginx of node.js.",
   "main": "index.js",
   "scripts": {
