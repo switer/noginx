@@ -1,6 +1,9 @@
+var EventEmitter = require('events').EventEmitter
+
 function Noop () {}
 
 function Request (method, url) {
+    var _listeners = {}
     this.next = Noop
     this.method = method
     this.url = url
@@ -12,6 +15,13 @@ function Request (method, url) {
         })
         return qs
     })(this.url.split('?')[1] || '')
+    var emitter = new EventEmitter()
+    this.on = function () {
+        emitter.on.apply(emitter, arguments)
+    }
+    this.emit = function () {
+        emitter.emit.apply(emitter, arguments)
+    }
 }
 
 function Response (send, render) {
@@ -33,6 +43,8 @@ function Response (send, render) {
         return this
     }
     this.headers = {}
+    EventEmitter.call(this)
+
 }
 
 module.exports = function (assert, noginx) {
